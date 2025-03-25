@@ -6,28 +6,9 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import Article from './components/article/Article';
 import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 
 function App() {
-
-  const genres = ["Action",
-                  "Adventure",
-                  "Animation",
-                  "Comedy",
-                  "Crime",
-                  "Documentary",
-                  "Drama",
-                  "Family",
-                  "Fantasy",
-                  "History",
-                  "Horror",
-                  "Music",
-                  "Mystery",
-                  "Romance",
-                  "Science Fiction",
-                  "TV Movie",
-                  "Thriller",
-                  "War",
-                  "Western"];
 
   const [movies, setMovies] = useState([]);
 
@@ -52,6 +33,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<Home movies={movies} />}></Route>
           <Route path="/article" element={<Article />}></Route>

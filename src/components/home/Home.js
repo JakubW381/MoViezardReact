@@ -43,7 +43,7 @@ const Home = () => {
                     <Carousel>
                         {movies.map((movie, index) => {
                             return (
-                                <Paper>
+                                <Paper key={index}>
                                     <div className="movie-card-container">
                                         <div className="movie-card" style={{"--img": `url(${movie.image})`}}>
                                             <div className="movie-detail">
