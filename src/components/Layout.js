@@ -36,11 +36,11 @@ const Layout = () => {
 
     return (
         <main>
-            <Navbar bg="dark" variant="dark">
+            <Navbar bg="dark" variant="dark" >
                 <Container fluid>
-                    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+                    <Navbar.Brand as={NavLink} to="/">MoViezard</Navbar.Brand>
 
-                    <Nav className="d-flex align-items-center">
+                    <Nav className="d-flex align-items-center" >
                         {isLoggedIn ? (
                             <>
                                 <Button as={NavLink} to="/profile" variant="outline-info" className="me-2">

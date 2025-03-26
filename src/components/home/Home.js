@@ -3,8 +3,16 @@ import api from "../../axios/axiostest";
 import './Home.css';
 import Carousel from 'react-material-ui-carousel';
 import { Paper } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+
+  const navigate = useNavigate();
+
+  function MovieSite(movieID){
+    navigate(`movie/${movieID}`);
+  }
+
 
   const genres = [
     "Action", "Adventure", "Animation", "Comedy", "Crime", "Documentary", "Drama", "Family", "Fantasy", "History", 
@@ -26,15 +34,13 @@ const Home = () => {
   };
 
   useEffect(() => {
-    
     genres.forEach(genre => getMovies(genre));
   }, []);
 
   return (
-    <div>
+    <div className="movie-carousels-container">
       {genres.map((genre) => {
         const movies = moviesByGenre[genre];
-
         return (
           <div key={genre}>
             <h2>{genre}</h2>
@@ -43,20 +49,20 @@ const Home = () => {
                     <Carousel>
                         {movies.map((movie, index) => {
                             return (
-                                <Paper key={index}>
-                                    <div className="movie-card-container">
-                                        <div className="movie-card" style={{"--img": `url(${movie.image})`}}>
-                                            <div className="movie-detail">
-                                                <div className="movie-poster">
-                                                    <img src={movie.image} alt=""/>
-                                                </div>
-                                                <div className="movie-title">
-                                                    <h4>{movie.title}</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </Paper>
+                                  <Paper key={index} className="paper">
+                                      <div className="movie-card-container" onClick={() => MovieSite(movie.id)}>
+                                          <div className="movie-card" style={{"--img": `url(${movie.image})`}}>
+                                              <div className="movie-detail">
+                                                  <div className="movie-poster">
+                                                      <img src={movie.image} alt=""/>
+                                                  </div>
+                                                  <div className="movie-title">
+                                                      <h4>{movie.title}</h4>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </Paper>
                             )
                         })}
                     </Carousel>
