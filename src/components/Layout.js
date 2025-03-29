@@ -12,7 +12,7 @@ const Layout = () => {
             try {
                 const response = await api.get("/api/auth/check-session",{withCredentials:true});
                 console.log("check: "+response.data)
-                setIsLoggedIn(response.data); // Sprawdź, czy sesja jest aktywna
+                setIsLoggedIn(response.data); 
             } catch (err) {
                 console.error("Error checking session:", err);
                 setIsLoggedIn(false);
@@ -24,10 +24,10 @@ const Layout = () => {
 
     const logout = async () => {
         try {
-            // Wywołanie API do wylogowania
+            
             const response = await api.get("/logout", { withCredentials: true });
             console.log("logout:"+response.data)
-            // Ustawienie stanu na false po wylogowaniu
+            
             setIsLoggedIn(false);
         } catch (err) {
             console.error("Error Logging Out:", err);

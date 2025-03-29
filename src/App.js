@@ -52,7 +52,7 @@ function App() {
           <Route path="/" element={<Home movies={movies} />}></Route>
           <Route path="/article" element={<Article />}></Route>
           <Route path="/movie/:movieID" element={<Movie getMovieData={getMovie} movie={movie}/>}></Route>
-          <Route path="/movies/:genre" element={<Genre genre={genre}/>}></Route>
+          {/*<Route path="/movies/:genre" element={<Genre genre={genre}/>}></Route>*/}
         </Route>
       </Routes>
     </div>

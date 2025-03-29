@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import api from "../../axios/axiostest";
 import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const SendPost = async (username, password,navigate) => {
   try {
@@ -49,10 +50,9 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>You are in the username page</h2>
+    <div className="login-container">
+      <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <div>
           <label>Enter username: </label>
           <input
             type="text"
@@ -60,8 +60,7 @@ const Login = () => {
             value={username}
             onChange={handleUsernameChange}
           />
-        </div>
-        <div>
+        
           <label>Enter password: </label>
           <input
             type="password"
@@ -69,9 +68,8 @@ const Login = () => {
             value={password}
             onChange={handlePassChange}
           />
-        </div>
         {/* <Button onClick={continueWithGoogle(navigate)}>Continue With Google</Button> */}
-        <Button type="submit">Login</Button>
+        <Button className="button" type="submit">Login</Button>
       </form>
     </div>
   );
